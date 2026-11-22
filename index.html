@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andalusian Residences — Interactive 3D Tour &amp; Virtual Staging</title>
+    <meta
+      name="description"
+      content="Explore the newly renovated 3-storey Andalusian apartment residences in interactive 3D, with AI-staged Modern Mediterranean interiors, Before/After comparisons, Choose-Your-Kitchen configurator, and 360° fly-through videos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#top" class="brand">
+          <span class="brand-mark">AR</span>
+          <span class="brand-text">
+            <strong>Andalusian Residences</strong>
+            <small>3-Floor Boutique Development</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#explorer-3d">3D Explorer</a>
+          <a href="#room-studio">Staged Tour</a>
+          <a href="#kitchen-studio">Choose Kitchen</a>
+          <a href="#tour-videos">360° &amp; Drone Videos</a>
+          <a href="#apartments">All 3 Floors</a>
+        </nav>
+        <button type="button" class="btn btn-primary btn-sm" id="heroPlayDrone">
+          ▶ Drone Fly-Through
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-media">
+          <img
+            src="./media/staged/penthouse-living-1.jpg"
+            alt="Staged Modern Mediterranean Penthouse living room opening onto a sunny Andalusian terrace"
+            fetchpriority="high"
+            width="1920"
+            height="1280"
+          />
+          <div class="hero-scrim"></div>
+        </div>
+        <div class="hero-content container">
+          <div class="eyebrow">Apartment 3 · Penthouse Showcase</div>
+          <h1>Finished Vision.<br /><em>Interactive 3D Tour.</em></h1>
+          <p class="hero-lead">
+            Step inside three newly built, full-floor Andalusian apartments—virtually finished and
+            furnished in Modern Mediterranean style with bespoke kitchens, kitted-out utility rooms,
+            and panoramic sea-view terraces.
+          </p>
+          <div class="hero-actions">
+            <a href="#explorer-3d" class="btn btn-primary">Explore 3D Dollhouse</a>
+            <a href="#room-studio" class="btn btn-glass">Before / After Rooms</a>
+            <button type="button" class="btn btn-glass" id="openWalkaroundBtn">
+              ▶ Watch 360° Tour Video
+            </button>
+          </div>
+          <div class="hero-metrics">
+            <div><strong>3</strong><span>Full-Floor Apartments</span></div>
+            <div><strong>10</strong><span>AI-Staged Penthouse Views</span></div>
+            <div><strong>2</strong><span>Bespoke Kitchen Specs</span></div>
+            <div><strong>360°</strong><span>Walk-Around &amp; Drone Reels</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE 3D BUILDING & PENTHOUSE DOLLHOUSE -->
+      <section id="explorer-3d" class="section section-dark">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Interactive WebGL · Three.js</span>
+              <h2>3D Architectural Explorer &amp; Drone Flight</h2>
+              <p class="muted">
+                Orbit the 3-storey building, peel back the Penthouse roof to inspect every room,
+                click any glowing hotspot to jump straight to its photoreal staged view, or launch
+                the automated drone fly-through.
+              </p>
+            </div>
+            <div class="controls-pill-group" role="group" aria-label="3D view controls">
+              <button type="button" class="pill active" data-3d-mode="penthouse">
+                Penthouse Cutaway
+              </button>
+              <button type="button" class="pill" data-3d-mode="exterior">Full Exterior</button>
+              <button type="button" class="pill" data-3d-mode="drone">✈ Drone Fly-Through</button>
+            </div>
+          </div>
+
+          <div class="stage-3d-wrap" id="stage3dContainer">
+            <canvas id="scene3dCanvas" aria-label="Interactive 3D apartment building model"></canvas>
+            <div class="hotspots-layer" id="hotspotsLayer" aria-label="3D room hotspots"></div>
+
+            <div class="hud-bottom-left">
+              <span class="hud-chip">Drag to Orbit · Scroll to Zoom · Click Pins to Inspect</span>
+            </div>
+            <div class="hud-bottom-right">
+              <div class="floor-stack" role="group" aria-label="Highlight floor">
+                <button type="button" class="floor-btn active" data-floor="3">
+                  Floor 3 · Penthouse
+                </button>
+                <button type="button" class="floor-btn" data-floor="2">Floor 2 · Apt 2</button>
+                <button type="button" class="floor-btn" data-floor="1">Floor 1 · Apt 1</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHOTOREAL ROOM STUDIO: BEFORE/AFTER + 360 PAN -->
+      <section id="room-studio" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Apartment 3 · Virtual Staging Studio</span>
+              <h2>Photoreal Room-by-Room Tour</h2>
+              <p class="muted">
+                Drag the divider to compare the original unfinished site photos against the finished
+                Modern Mediterranean staging—or switch to <strong>360° Pan View</strong> to look
+                around each room smoothly.
+              </p>
+            </div>
+            <div class="controls-pill-group" role="group" aria-label="Room viewer mode">
+              <button type="button" class="pill active" data-viewer-mode="compare">
+                Before / After Slider
+              </button>
+              <button type="button" class="pill" data-viewer-mode="staged">Finished Only</button>
+              <button type="button" class="pill" data-viewer-mode="pan360">
+                360° Interactive Pan
+              </button>
+            </div>
+          </div>
+
+          <div class="room-stage-card">
+            <div class="viewer-viewport" id="roomViewport">
+              <!-- Finished / Staged Layer -->
+              <img
+                id="roomStagedImg"
+                class="viewer-img viewer-img-staged"
+                src="./media/staged/penthouse-living-1.jpg"
+                alt="Finished staged room view"
+                width="1920"
+                height="1280"
+              />
+              <!-- Raw / Before Layer (clipped by slider) -->
+              <div class="compare-before-wrap" id="beforeWrap">
+                <img
+                  id="roomRawImg"
+                  class="viewer-img viewer-img-raw"
+                  src="./media/raw/penthouse-living-1.jpg"
+                  alt="Original unfinished room photo"
+                  fetchpriority="low"
+                  width="1920"
+                  height="1280"
+                />
+              </div>
+
+              <!-- Slider Divider -->
+              <div class="compare-divider" id="compareDivider" aria-hidden="true">
+                <div class="compare-handle">⇄</div>
+              </div>
+              <input
+                type="range"
+                id="compareRange"
+                class="compare-range"
+                min="0"
+                max="100"
+                value="28"
+                aria-label="Slide to compare unfinished original photo and finished staged render"
+              />
+
+              <span class="badge-corner badge-left" id="badgeBefore">Unfinished Original</span>
+              <span class="badge-corner badge-right" id="badgeAfter">AI-Staged Finished</span>
+              <span class="badge-pan-hint" id="panHint">
+                Drag left/right to pan 360° · Double-click to reset
+              </span>
+
+              <!-- Room Prev / Next Controls -->
+              <button type="button" class="nav-arrow nav-prev" id="prevRoomBtn" aria-label="Previous room">
+                ‹
+              </button>
+              <button type="button" class="nav-arrow nav-next" id="nextRoomBtn" aria-label="Next room">
+                ›
+              </button>
+            </div>
+
+            <div class="room-caption-bar">
+              <div>
+                <span class="room-tag" id="roomTag">Living Space</span>
+                <h3 id="roomTitle">Open-Plan Lounge</h3>
+                <p id="roomDesc"></p>
+              </div>
+              <div class="room-counter" id="roomCounter">01 / 11</div>
+            </div>
+
+            <div class="room-thumbs" id="roomThumbs" role="list" aria-label="Select penthouse room"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHOOSE YOUR OWN KITCHEN CONFIGURATOR -->
+      <section id="kitchen-studio" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Fully Fitted To Spec</span>
+              <h2>Choose Your Own Kitchen</h2>
+              <p class="muted">
+                Every apartment includes a bespoke fitted kitchen—toggle between our two architectural
+                layouts in white gloss handleless cabinetry and honed matt black granite.
+              </p>
+            </div>
+            <div class="controls-pill-group" role="group" aria-label="Kitchen layout choice">
+              <button type="button" class="pill active" data-kitchen="large">
+                Large L-Shaped (4.0m × 2.6m)
+              </button>
+              <button type="button" class="pill" data-kitchen="small">
+                Compact Peninsula (4.4m × 3.0m)
+              </button>
+            </div>
+          </div>
+
+          <div class="kitchen-grid">
+            <div class="kitchen-showcase">
+              <div class="kitchen-main-frame">
+                <img
+                  id="kitchenHeroImg"
+                  src="./media/kitchens/large-kitchen-photoreal.jpg"
+                  alt="Fitted luxury kitchen render"
+                  loading="lazy"
+                  width="1600"
+                  height="1067"
+                />
+                <span class="badge-corner badge-right" id="kitchenAngleLabel">Hero 3/4 View</span>
+              </div>
+              <div class="kitchen-angles" id="kitchenAngles"></div>
+            </div>
+
+            <div class="kitchen-details">
+              <span class="room-tag" id="kitchenDims">4,000 × 2,600 mm · Full L-Return</span>
+              <h3 id="kitchenName">Large L-Shaped Designer Kitchen</h3>
+              <p id="kitchenSummary" class="muted"></p>
+              <ul class="spec-list" id="kitchenFeatures"></ul>
+              <div class="finish-swatches">
+                <div class="swatch">
+                  <span class="swatch-dot swatch-white"></span>
+                  <span>White Gloss PET Slab</span>
+                </div>
+                <div class="swatch">
+                  <span class="swatch-dot swatch-granite"></span>
+                  <span>Honed Matt Black Granite</span>
+                </div>
+                <div class="swatch">
+                  <span class="swatch-dot swatch-tile"></span>
+                  <span>Porcelain Floor Tiles</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 360° WALK-AROUND & DRONE FLY-THROUGH VIDEOS -->
+      <section id="tour-videos" class="section section-dark">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Cinematic HD Reels · Ready To Share</span>
+              <h2>360° Walk-Around &amp; Drone-Style Fly-Throughs</h2>
+              <p class="muted">
+                Stream full-screen in our cinema player or download the HD MP4 videos directly for
+                property portals, WhatsApp, and social media.
+              </p>
+            </div>
+          </div>
+
+          <div class="video-cards-grid">
+            <article class="video-card">
+              <div class="video-poster">
+                <video
+                  src="./media/videos/penthouse-walkaround-360.mp4"
+                  poster="./media/staged/penthouse-living-2.jpg"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  class="card-video-preview"
+                ></video>
+                <button
+                  type="button"
+                  class="play-overlay"
+                  data-open-video="walkaround"
+                  aria-label="Play 360 Walk-Around Tour Video"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="video-card-body">
+                <span class="room-tag">Full Interior Tour · 10 Rooms</span>
+                <h3>Penthouse 360° Walk-Around Tour</h3>
+                <p class="muted">
+                  Smooth architectural glide through the lounge, dining space, fitted kitchen,
+                  wrap-around terrace, master suite, en-suite, family spa bath, utility &amp; guest
+                  bedroom.
+                </p>
+                <div class="video-card-actions">
+                  <button type="button" class="btn btn-primary btn-sm" data-open-video="walkaround">
+                    Watch Fullscreen
+                  </button>
+                  <a
+                    href="./media/videos/penthouse-walkaround-360.mp4"
+                    download="penthouse-walkaround-360.mp4"
+                    class="btn btn-glass btn-sm"
+                  >
+                    ↓ Download MP4
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-poster">
+                <video
+                  src="./media/videos/penthouse-drone-flythrough.mp4"
+                  poster="./media/staged/penthouse-terrace-1.jpg"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  class="card-video-preview"
+                ></video>
+                <button
+                  type="button"
+                  class="play-overlay"
+                  data-open-video="drone"
+                  aria-label="Play Drone-Style Fly-Through Video"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="video-card-body">
+                <span class="room-tag">Aerial Showcase · Exterior to Penthouse</span>
+                <h3>Drone-Style Exterior &amp; Terrace Fly-Through</h3>
+                <p class="muted">
+                  Dynamic swooping sequence from the whitewashed Andalusian façade up onto the
+                  panoramic sea-view rooftop terrace and straight inside the staged penthouse.
+                </p>
+                <div class="video-card-actions">
+                  <button type="button" class="btn btn-primary btn-sm" data-open-video="drone">
+                    Watch Fullscreen
+                  </button>
+                  <a
+                    href="./media/videos/penthouse-drone-flythrough.mp4"
+                    download="penthouse-drone-flythrough.mp4"
+                    class="btn btn-glass btn-sm"
+                  >
+                    ↓ Download MP4
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALL 3 APARTMENTS SPECIFICATIONS -->
+      <section id="apartments" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">3 Floors · 1 Full-Floor Apartment Per Level</span>
+              <h2>Building Specifications</h2>
+              <p class="muted">
+                Every apartment features dual air conditioning, a living room pellet burner,
+                freestanding family bath with twin sinks, en-suite shower room, utility room, and a
+                bespoke fitted kitchen.
+              </p>
+            </div>
+          </div>
+
+          <div class="apartments-grid" id="apartmentsGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Andalusian Residences · Interactive 3D Tour</strong>
+          <p class="muted">
+            AI-staged architectural visualisations based on site photography &amp; kitchen design
+            specifications.
+          </p>
+        </div>
+        <a href="#top" class="btn btn-glass btn-sm">↑ Back to Top</a>
+      </div>
+    </footer>
+
+    <!-- NATIVE MODAL DIALOG WITH LIGHT-DISMISS (closedby="any" + Safari fallback) -->
+    <dialog id="videoDialog" class="cinema-dialog" closedby="any" aria-labelledby="videoDialogTitle">
+      <div class="cinema-dialog-inner">
+        <div class="cinema-dialog-head">
+          <div>
+            <span class="room-tag" id="videoDialogTag">HD Tour Reel</span>
+            <h3 id="videoDialogTitle">Penthouse 360° Walk-Around Tour</h3>
+          </div>
+          <form method="dialog">
+            <button type="submit" class="dialog-close" aria-label="Close video dialog">✕</button>
+          </form>
+        </div>
+        <video id="dialogVideoPlayer" controls playsinline class="cinema-video"></video>
+      </div>
+    </dialog>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
