@@ -209,7 +209,7 @@ document.querySelectorAll('[data-kitchen]').forEach((btn) => {
   });
 });
 
-renderKitchen('small');
+renderKitchen('large');
 
 // ---------- 4. CINEMA VIDEO MODAL DIALOG (closedby="any" + Safari fallback) ----------
 const videoDialog = document.getElementById('videoDialog');

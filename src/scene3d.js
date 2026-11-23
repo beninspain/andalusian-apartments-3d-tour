@@ -188,12 +188,13 @@ export function init3DExplorer({ container, canvas, hotspotsLayer, rooms, onSele
   // Dining Table (oak)
   addBox(penthouseGroup, 1.5, 0.48, 0.85, 0.75, 7.09, 1.4, oakMat);
 
-  // Fitted Penthouse Peninsula Kitchen (white gloss + matt black granite worktop + tall fridge right)
-  addBox(penthouseGroup, 2.0, 0.62, 0.55, 3.6, 7.16, -1.05, whiteGlossMat);
-  addBox(penthouseGroup, 2.02, 0.06, 0.57, 3.6, 7.5, -1.05, graniteMat);
-  addBox(penthouseGroup, 0.52, 1.45, 0.56, 4.35, 7.56, -1.05, whiteGlossMat); // Fridge tower far right
-  addBox(penthouseGroup, 0.5, 0.62, 1.35, 2.8, 7.16, -0.35, whiteGlossMat); // Projecting left peninsula
-  addBox(penthouseGroup, 0.52, 0.06, 1.37, 2.8, 7.5, -0.35, graniteMat);
+  // Fitted Penthouse Large L-Shaped Kitchen (4.0m x 2.6m wall-to-wall L-shape)
+  addBox(penthouseGroup, 2.2, 0.62, 0.55, 3.55, 7.16, -1.05, whiteGlossMat);
+  addBox(penthouseGroup, 2.22, 0.06, 0.57, 3.55, 7.5, -1.05, graniteMat);
+  addBox(penthouseGroup, 0.52, 1.45, 0.56, 4.38, 7.56, -1.05, whiteGlossMat); // Tall oven/microwave tower
+  addBox(penthouseGroup, 0.55, 0.62, 1.65, 2.72, 7.16, -0.5, whiteGlossMat); // Long sink run
+  addBox(penthouseGroup, 0.57, 0.06, 1.67, 2.72, 7.5, -0.5, graniteMat);
+  addBox(penthouseGroup, 0.56, 1.45, 0.52, 2.72, 7.56, 0.42, whiteGlossMat); // Tall fridge tower
 
   // Master Bed
   addBox(penthouseGroup, 1.45, 0.38, 1.75, -2.9, 7.04, -2.8, linenMat);

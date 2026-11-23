@@ -104,10 +104,10 @@ export const PENTHOUSE_ROOMS = [
   },
   {
     id: 'kitchen',
-    name: 'Penthouse Peninsula Kitchen',
+    name: 'Penthouse Large L-Shaped Kitchen',
     shortName: 'Kitchen',
     tag: 'Penthouse Spec',
-    description: 'Compact Peninsula kitchen designed specifically for the Penthouse: handleless white gloss PET cabinetry, honed matt black granite worktops & recessed kickboards, projecting prep peninsula, undercounter oven + induction hob with T-shaped chimney hood, built-in microwave bay, and integrated fridge-freezer tower.',
+    description: 'Large wall-to-wall L-shaped designer kitchen (4.0m × 2.6m) fitted cleanly into the Penthouse alcove: handleless white gloss PET cabinetry, honed matt black granite worktops & recessed kickboards, continuous upper cabinets with warm under-cabinet LEDs, integrated fridge tower, induction hob with concealed extractor, and tall oven/microwave tower.',
     raw: './media/raw/penthouse-kitchen.jpg',
     staged: './media/staged/penthouse-kitchen.jpg',
     hotspot3D: { x: 2.8, y: 7.4, z: -1.4 },
@@ -204,33 +204,13 @@ export const PENTHOUSE_ROOMS = [
 ];
 
 export const KITCHEN_OPTIONS = {
-  small: {
-    id: 'small',
-    name: 'Penthouse Compact Peninsula Kitchen',
-    dimensions: 'Apartment 3 (Penthouse) · 4,400 × 3,000 mm',
-    summary: 'Fitted to Apartment 3 (Penthouse): open-plan peninsula configuration maximizing floor flow, featuring handleless white gloss PET fronts, honed matt black granite worktops & plinths, statement T-shaped chimney hood, built-in microwave bay, and integrated fridge tower.',
-    features: [
-      'Designed specifically for Apartment 3 — The Penthouse',
-      '1.8m projecting peninsula creating an open culinary zone',
-      'Honed matt black granite worktops & 100mm recessed kickboards',
-      'Undercounter oven + induction hob with T-shaped chimney extractor',
-      'Integrated dishwasher, sink cabinet, built-in microwave & 600mm fridge tower'
-    ],
-    views: [
-      { label: 'Hero Frontal View', src: './media/kitchens/small-kitchen-photoreal.jpg' },
-      { label: 'From Right Aisle', src: './media/kitchens/small-kitchen-02.jpg' },
-      { label: 'From Left Passage', src: './media/kitchens/small-kitchen-03.jpg' },
-      { label: 'Elevated Layout', src: './media/kitchens/small-kitchen-04.jpg' },
-      { label: 'Coffee & Cooking Detail', src: './media/kitchens/small-kitchen-05.jpg' }
-    ]
-  },
   large: {
     id: 'large',
-    name: 'Large L-Shaped Designer Kitchen',
-    dimensions: 'Apartments 1 & 2 · 4,000 × 2,600 mm',
-    summary: 'Fitted to Apartments 1 & 2: continuous 900mm white gloss handleless upper & base cabinetry around both legs, honed matt black granite worktops & kickboards, concealed integrated extractor, tall fridge-freezer tower, and waist-height oven & microwave tower.',
+    name: 'Penthouse Large L-Shaped Kitchen',
+    dimensions: 'Apartment 3 (Penthouse) · 4,000 × 2,600 mm',
+    summary: 'Fitted to Apartment 3 (Penthouse): continuous 900mm white gloss handleless upper & base cabinetry around both legs of the alcove, honed matt black granite worktops & kickboards, concealed integrated extractor, tall fridge-freezer tower, and waist-height oven & microwave tower.',
     features: [
-      'Designed for Apartments 1 & 2 (Floors 1 & 2)',
+      'Designed specifically for Apartment 3 — The Penthouse',
       '4.0m sink & prep run + 2.6m cooking return',
       'Honed matt black granite worktops & 100mm recessed kickboards',
       'Integrated tall fridge-freezer + dedicated oven/microwave tower',
@@ -242,6 +222,26 @@ export const KITCHEN_OPTIONS = {
       { label: 'Toward Fridge Tower', src: './media/kitchens/large-kitchen-03.jpg' },
       { label: 'Elevated Layout', src: './media/kitchens/large-kitchen-04.jpg' },
       { label: 'Hob & Concealed Hood', src: './media/kitchens/large-kitchen-05.jpg' }
+    ]
+  },
+  small: {
+    id: 'small',
+    name: 'Compact Peninsula Kitchen',
+    dimensions: 'Apartments 1 & 2 · 4,400 × 3,000 mm',
+    summary: 'Fitted to Apartments 1 & 2 (Floors 1 & 2): open-plan peninsula configuration maximizing floor flow, featuring handleless white gloss PET fronts, honed matt black granite worktops & plinths, statement T-shaped chimney hood, built-in microwave bay, and integrated fridge tower.',
+    features: [
+      'Designed for Apartments 1 & 2 (Floors 1 & 2)',
+      '1.8m projecting peninsula creating an open culinary zone',
+      'Honed matt black granite worktops & 100mm recessed kickboards',
+      'Undercounter oven + induction hob with T-shaped chimney extractor',
+      'Integrated dishwasher, sink cabinet, built-in microwave & 600mm fridge tower'
+    ],
+    views: [
+      { label: 'Hero Frontal View', src: './media/kitchens/small-kitchen-photoreal.jpg' },
+      { label: 'From Right Aisle', src: './media/kitchens/small-kitchen-02.jpg' },
+      { label: 'From Left Passage', src: './media/kitchens/small-kitchen-03.jpg' },
+      { label: 'Elevated Layout', src: './media/kitchens/small-kitchen-04.jpg' },
+      { label: 'Coffee & Cooking Detail', src: './media/kitchens/small-kitchen-05.jpg' }
     ]
   }
 };
