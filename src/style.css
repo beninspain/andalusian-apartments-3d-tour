@@ -41,6 +41,7 @@ img,
 video {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .container {
@@ -748,8 +749,9 @@ video {
 
 .kitchen-main-frame img {
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 2;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .kitchen-angles {
@@ -775,6 +777,7 @@ video {
 
 .kitchen-angle-btn img {
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
 }
