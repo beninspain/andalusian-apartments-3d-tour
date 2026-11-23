@@ -170,22 +170,30 @@ export function init3DExplorer({ container, canvas, hotspotsLayer, rooms, onSele
   penthouseGroup.add(column);
 
   // Furnished Dollhouse Details!
-  // Living room L-sofa + coffee table + pellet burner
+  // Living room L-sofa + coffee table + corner pellet burner in 90° terrace/back corner
   addBox(penthouseGroup, 2.1, 0.42, 0.75, -2.4, 7.06, 1.75, linenMat);
   addBox(penthouseGroup, 0.75, 0.42, 1.45, -1.72, 7.06, 1.15, linenMat);
   addBox(penthouseGroup, 0.9, 0.25, 0.55, -2.5, 6.98, 0.85, oakMat);
-  const pellet = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.85, 16), anthraciteMat);
-  pellet.position.set(-3.55, 7.28, 0.2);
+  const pellet = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.28, 0.92, 16, 1, false, 0, Math.PI / 2),
+    anthraciteMat
+  );
+  pellet.rotation.y = Math.PI * 0.75;
+  pellet.position.set(-3.75, 7.32, 2.85);
   penthouseGroup.add(pellet);
+  const flue = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.1, 10), anthraciteMat);
+  flue.position.set(-3.75, 8.2, 2.85);
+  penthouseGroup.add(flue);
 
   // Dining Table (oak)
   addBox(penthouseGroup, 1.5, 0.48, 0.85, 0.75, 7.09, 1.4, oakMat);
 
-  // Fitted L-Shaped Kitchen (white gloss + matt black granite worktop)
-  addBox(penthouseGroup, 2.1, 0.62, 0.55, 3.55, 7.16, -1.05, whiteGlossMat);
-  addBox(penthouseGroup, 2.12, 0.06, 0.57, 3.55, 7.5, -1.05, graniteMat);
-  addBox(penthouseGroup, 0.55, 0.62, 1.5, 2.75, 7.16, -0.55, whiteGlossMat);
-  addBox(penthouseGroup, 0.57, 0.06, 1.52, 2.75, 7.5, -0.55, graniteMat);
+  // Fitted Penthouse Peninsula Kitchen (white gloss + matt black granite worktop + tall fridge right)
+  addBox(penthouseGroup, 2.0, 0.62, 0.55, 3.6, 7.16, -1.05, whiteGlossMat);
+  addBox(penthouseGroup, 2.02, 0.06, 0.57, 3.6, 7.5, -1.05, graniteMat);
+  addBox(penthouseGroup, 0.52, 1.45, 0.56, 4.35, 7.56, -1.05, whiteGlossMat); // Fridge tower far right
+  addBox(penthouseGroup, 0.5, 0.62, 1.35, 2.8, 7.16, -0.35, whiteGlossMat); // Projecting left peninsula
+  addBox(penthouseGroup, 0.52, 0.06, 1.37, 2.8, 7.5, -0.35, graniteMat);
 
   // Master Bed
   addBox(penthouseGroup, 1.45, 0.38, 1.75, -2.9, 7.04, -2.8, linenMat);
