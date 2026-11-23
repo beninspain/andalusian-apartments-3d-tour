@@ -103,6 +103,7 @@ let explorer3D = null;
 function selectRoom(index, sync3D = false) {
   currentRoomIdx = (index + PENTHOUSE_ROOMS.length) % PENTHOUSE_ROOMS.length;
   const room = PENTHOUSE_ROOMS[currentRoomIdx];
+  roomViewport.classList.toggle('is-portrait', room.id === 'exterior');
   roomStagedImg.src = room.staged;
   roomStagedImg.alt = `${room.name} — finished staged render`;
   roomRawImg.src = room.raw;

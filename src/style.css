@@ -477,12 +477,17 @@ video {
 
 .viewer-viewport {
   position: relative;
-  aspect-ratio: 16 / 10;
-  max-height: 72vh;
+  aspect-ratio: 3 / 2;
+  max-height: 82vh;
   width: 100%;
   background: #141311;
   overflow: hidden;
   user-select: none;
+}
+
+.viewer-viewport.is-portrait {
+  aspect-ratio: 3 / 2;
+  max-height: 84vh;
 }
 
 .viewer-img {
@@ -490,7 +495,7 @@ video {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   pointer-events: none;
 }
 
